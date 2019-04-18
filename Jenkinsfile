@@ -6,6 +6,9 @@ pipeline {
     }
     stages {
         stage('Build') {
+            options {
+                timeout(time: 1, unit: 'HOURS') 
+            }            
             steps {
                 echo 'Running build automation'
                 sh './gradlew build --no-daemon'
